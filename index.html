@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#020817">
+<title>ASH XIT | Cyber Music Zone</title>
+<style>
+:root{--blue:#00cfff;--ice:#a9f5ff;--deep:#020817;--pink:#ff4fe1}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 50% 35%,#063a70 0,#03152f 35%,#010510 78%);color:#dffaff;font-family:Arial,Helvetica,sans-serif;min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;background:repeating-linear-gradient(0deg,transparent 0 3px,#00baff0a 4px),linear-gradient(90deg,transparent 49.8%,#00cfff12 50%,transparent 50.2%);z-index:1}
+#rain{position:fixed;inset:0;width:100%;height:100%;opacity:.32;pointer-events:none;z-index:0}
+.wrap{width:min(1160px,100%);margin:auto;position:relative;z-index:2;padding:0 22px 22px}
+.nav{position:sticky;top:0;z-index:10;margin:0 auto 24px;padding:13px 20px;display:flex;justify-content:center;align-items:center;gap:clamp(12px,3vw,38px);flex-wrap:wrap;background:#020b18eF;border:1px solid #0089d6;border-top:0;border-radius:0 0 22px 22px;box-shadow:0 8px 25px #007bff24}
+.nav a{color:#83dfff;text-decoration:none;font-size:12px;font-weight:bold;letter-spacing:1.4px;white-space:nowrap}.nav a:first-child{color:#fff;border:1px solid var(--blue);border-radius:8px;padding:8px 14px;box-shadow:0 0 15px #00cfff65}.nav a:hover{color:white;text-shadow:0 0 12px var(--blue)}
+.neon{position:absolute;right:20px;top:15px;font-size:10px;color:#8eeeff;letter-spacing:1px}
+.hero{position:relative;text-align:center;padding:22px 10px 8px;min-height:255px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.crown{font-size:42px;color:var(--blue);filter:drop-shadow(0 0 10px var(--blue));line-height:1.1;animation:crown 3s ease-in-out infinite}
+@keyframes crown{50%{transform:translateY(-7px);filter:drop-shadow(0 0 20px var(--blue))}}
+.logo{font-size:clamp(55px,11vw,112px);font-weight:1000;font-style:italic;letter-spacing:-5px;line-height:1.05;margin:0;background:linear-gradient(110deg,#f4ffff 3%,#79eaff 24%,#168aff 46%,#00e8ff 63%,#d7ffff 78%,#187fff);color:transparent;background-clip:text;-webkit-background-clip:text;filter:drop-shadow(0 0 13px #00aaffc7);animation:logoFloat 4s ease-in-out infinite}
+@keyframes logoFloat{0%,100%{transform:translateX(-4px) skewX(-2deg)}50%{transform:translateX(4px) skewX(2deg)}}
+.subhead{font-weight:900;letter-spacing:clamp(2px,.7vw,7px);font-size:clamp(15px,3vw,26px);color:#22dfff;text-shadow:0 0 14px #007dff;margin:6px 0 9px}
+.tagline{font-size:12px;letter-spacing:clamp(2px,.6vw,6px);color:#a7e8ff;font-style:italic}
+.side{position:absolute;top:90px;width:clamp(90px,19vw,220px);height:440px;opacity:.72;pointer-events:none;overflow:hidden}
+.side.left{left:-32px}.side.right{right:-32px;transform:scaleX(-1)}
+.hood{position:absolute;top:0;left:5%;width:90%;height:340px;border-radius:48% 48% 20% 20%;background:linear-gradient(125deg,#01040d,#08294b 42%,#001020 68%,#03102b);clip-path:polygon(50% 0,85% 17%,100% 52%,83% 100%,15% 100%,0 52%,15% 18%);filter:drop-shadow(0 0 15px #008cff)}
+.hood:before{content:"";position:absolute;left:14%;top:20%;width:72%;height:40%;background:linear-gradient(160deg,#0b2c56,#010611 62%);clip-path:polygon(50% 0,100% 45%,80% 100%,20% 100%,0 45%);border-bottom:3px solid #00dfff}
+.hood:after{content:"";position:absolute;left:27%;top:34%;width:45%;height:7%;background:#00bfff;transform:rotate(-8deg);box-shadow:0 0 13px #00bfff,0 0 30px #008aff}
+.shoulder{position:absolute;left:-10%;right:-10%;bottom:-50px;height:220px;border:2px solid #008dff;border-radius:50% 50% 0 0;background:linear-gradient(100deg,#020612,#06274c 48%,#020612);box-shadow:inset 0 0 28px #007fff55,0 0 25px #007fff44}
+.side-mark{position:absolute;bottom:45px;left:10%;color:#00cfff;font-weight:900;font-size:30px;font-style:italic;transform:rotate(-15deg);text-shadow:0 0 12px #007bff}
+.clockbox{width:min(720px,100%);margin:10px auto 27px;display:grid;grid-template-columns:1fr 1.05fr 1fr;align-items:center;gap:12px;padding:16px 22px;background:linear-gradient(100deg,#031329ed,#041e3bed,#031329ed);border:2px solid #008dff;clip-path:polygon(4% 0,96% 0,100% 18%,100% 82%,96% 100%,4% 100%,0 82%,0 18%);box-shadow:0 0 25px #008dff40;text-align:center}
+.clockitem{font-size:11px;color:#85dfff;letter-spacing:1px}.clockitem strong{display:block;font-size:clamp(13px,2vw,20px);color:#dffaff;margin-top:7px;letter-spacing:1px}.clockcenter{font-size:clamp(28px,5vw,48px);font-weight:900;color:#72f4ff;text-shadow:0 0 13px #00bfff;letter-spacing:2px;border-left:1px solid #007bff;border-right:1px solid #007bff;padding:2px 6px}.ampm{font-size:14px;display:block;letter-spacing:4px}
+.goarea{width:min(880px,100%);margin:20px auto 0;padding:16px 20px 24px;border:1px solid #007bff;border-radius:20px;background:linear-gradient(180deg,#03152c99,#020817c9);box-shadow:0 0 30px #007bff20;position:relative}
+.goarea:before{content:"";position:absolute;inset:-1px;border:1px solid #00dfff;border-radius:20px;clip-path:polygon(7% 0,93% 0,100% 12%,100% 88%,93% 100%,7% 100%,0 88%,0 12%);pointer-events:none}
+.go-btn{display:block;position:relative;margin:0 auto 7px;width:min(450px,95%);padding:13px 18px;background:linear-gradient(100deg,#03162e,#063d75,#03162e);color:#bff8ff;border:2px solid #00bfff;clip-path:polygon(8% 0,92% 0,100% 50%,92% 100%,8% 100%,0 50%);font-size:clamp(29px,6vw,54px);font-weight:1000;font-style:italic;text-shadow:0 0 13px #00bfff;box-shadow:0 0 25px #00aaff;cursor:pointer;animation:goPulse 2s ease-in-out infinite}
+@keyframes goPulse{50%{filter:brightness(1.5);text-shadow:0 0 22px #00eaff,0 0 36px #007bff}}
+/* Rotating ASH XIT emblem replaces the old GO button. */
+.spin-stage{position:relative;display:grid;place-items:center;width:min(450px,100%);min-height:205px;margin:0 auto 10px;isolation:isolate}
+.spin-stage:before{content:"";position:absolute;width:190px;height:190px;border:1px solid #00eaff55;border-radius:50%;box-shadow:0 0 35px #00aaff30,inset 0 0 25px #00aaff20;animation:orbitGlow 3s ease-in-out infinite}
+.spin-stage:after{content:"";position:absolute;width:155px;height:155px;border:2px dashed #00cfff88;border-radius:50%;animation:emblemSpin 12s linear infinite}
+.spin-emblem{position:relative;z-index:1;width:clamp(135px,35vw,180px);height:clamp(135px,35vw,180px);display:grid;place-items:center;border-radius:50%;border:2px solid #00dfff;background:radial-gradient(circle,#062a3c 0%,#010713 68%);box-shadow:0 0 13px #00dfff,0 0 38px #007bff77,inset 0 0 25px #00dfff44;animation:emblemSpin 8s linear infinite}
+.spin-emblem svg{width:84%;height:84%;overflow:visible;filter:drop-shadow(0 0 7px #00fff0)}
+.spin-caption{position:absolute;bottom:0;left:0;right:0;text-align:center;color:#00eaff;font-size:11px;font-weight:900;letter-spacing:clamp(3px,1vw,6px);text-shadow:0 0 12px #00bfff}
+@keyframes emblemSpin{to{transform:rotate(360deg)}}
+@keyframes orbitGlow{50%{transform:scale(1.06);opacity:.65;box-shadow:0 0 50px #00eaff55,inset 0 0 35px #00aaff30}}
+@media(prefers-reduced-motion:reduce){.spin-emblem,.spin-stage:after,.spin-stage:before{animation:none}}
+.enter{text-align:center;color:#00dfff;font-weight:bold;font-size:13px;letter-spacing:2px;margin-bottom:22px}
+.music{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:15px;animation:rise .5s ease both}.music.open{display:grid}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.card{min-width:0;position:relative;text-align:center;padding:17px 10px 14px;border:2px solid #008fff;border-radius:22px;background:radial-gradient(ellipse at 50% 38%,#064d88a8,#020a19 70%);box-shadow:inset 0 0 22px #007fff28,0 0 15px #007fff28;overflow:hidden;transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 0 26px #00bfff75}
+.card.love{border-color:#cb4dff;box-shadow:inset 0 0 22px #b52cff20,0 0 15px #b52cff22}
+.symbol{font-size:clamp(38px,7vw,68px);line-height:1.15;color:#00cfff;text-shadow:0 0 18px #007bff;filter:drop-shadow(0 0 10px #008fff)}
+.love .symbol{color:#ff72e8;text-shadow:0 0 20px #ff35e1}
+.card h3{font-size:clamp(13px,2.2vw,24px);font-weight:1000;font-style:italic;color:#47dfff;text-shadow:0 0 12px #007bff;margin:8px 0}
+.love h3{color:#ff70e9;text-shadow:0 0 12px #f0f}
+.card p{font-size:10px;letter-spacing:1px;color:#9ddfff;min-height:24px}
+.play{border:2px solid #00bfff;border-radius:30px;color:#69eaff;background:#020d1c;width:55px;height:34px;font-size:17px;cursor:pointer;box-shadow:0 0 12px #008fff;margin-top:5px}
+.card.love .play{border-color:#ed60ff;color:#ff8cff}
+.notice{display:none;color:#bdefff;font-size:12px;text-align:center;margin-top:14px;padding:12px;border:1px dashed #008fff;background:#03142a}.notice.show{display:block}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:25px auto 18px;max-width:900px}.feature{display:flex;align-items:center;justify-content:center;gap:10px;color:#72dfff;font-size:11px;font-weight:bold;letter-spacing:1px;padding:10px 4px}.feature span{font-size:27px;color:#00cfff;text-shadow:0 0 12px #007bff}
+footer{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:25px;border-top:1px solid #0875ae;padding:18px 0;color:#67caff;font-size:11px;letter-spacing:1.5px;text-align:center}
+@media(max-width:700px){.wrap{padding:0 12px 18px}.nav{gap:12px;padding:12px 8px}.nav a{font-size:10px;letter-spacing:.6px}.neon{position:static}.side{opacity:.25;top:110px}.hero{min-height:210px}.clockbox{padding:13px 8px;gap:6px}.clockitem{font-size:9px}.clockitem strong{font-size:12px}.clockcenter{font-size:27px}.goarea{padding:14px 10px 18px}.music{gap:8px}.card{padding:13px 4px 10px;border-radius:14px}.card p{font-size:8px;letter-spacing:0}.features{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.music{grid-template-columns:1fr;max-width:280px;margin:14px auto}.card{padding:14px}.symbol{font-size:46px}.card h3{font-size:20px}.card p{font-size:10px}.side{display:none}.logo{letter-spacing:-3px}.clockbox{grid-template-columns:1fr 1.1fr 1fr}.clockcenter{font-size:22px}.subhead{letter-spacing:2px}}
+
+.yt-tools{margin-top:12px;text-align:left}
+.yt-input{width:100%;min-width:0;padding:10px 9px;border:1px solid #087db1;border-radius:7px;background:#020b18;color:#dffaff;font-size:11px;outline:none}
+.yt-input:focus{border-color:#69eaff;box-shadow:0 0 12px #00bfff40}
+.yt-load{width:100%;margin-top:7px;padding:9px 6px;border:1px solid #00bfff;border-radius:7px;background:#05213b;color:#8ceeff;font-size:10px;letter-spacing:.5px}
+.yt-thumb{display:none;width:100%;aspect-ratio:16/9;object-fit:cover;margin-top:10px;border:1px solid #00bfff;border-radius:8px;box-shadow:0 0 15px #008fff35;background:#020817}
+.yt-thumb.show{display:block}
+.yt-frame{display:none;width:100%;aspect-ratio:16/9;margin-top:10px;border:1px solid #00bfff;border-radius:8px;overflow:hidden;background:#000}
+.yt-frame.show{display:block}
+.yt-frame iframe{width:100%;height:100%;border:0}
+.yt-status{font-size:10px;color:#a9eaff;line-height:1.5;margin-top:6px;overflow-wrap:anywhere}.yt-added{font-size:9px;color:#7ccfff;line-height:1.5;margin-top:5px;letter-spacing:.3px}.yt-preview{margin-top:10px}
+@media(max-width:420px){.yt-input{font-size:12px}.yt-load{font-size:11px}}
+
+
+    .phonk-playlist{display:grid;gap:12px;margin-top:14px;text-align:left}
+    .phonk-track{display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;align-items:center;padding:9px;border:1px solid rgba(0,191,255,.35);border-radius:10px;background:rgba(0,10,25,.72);box-shadow:inset 0 0 12px rgba(0,191,255,.06)}
+    .phonk-number{font:800 14px monospace;color:#00d9ff;text-align:center}
+    .phonk-track-main{min-width:0}
+    .phonk-track-title{font-weight:800;font-size:.82rem;letter-spacing:.07em;color:#eafaff;margin-bottom:6px}
+    .phonk-track img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:7px;border:1px solid rgba(0,191,255,.35);background:#061426}
+    .phonk-track button{width:100%;margin-top:7px;padding:8px 10px;border:1px solid #00bfff;border-radius:6px;background:rgba(0,191,255,.12);color:#dffaff;font-weight:800;cursor:pointer}
+    .phonk-track button:hover{background:rgba(0,191,255,.28);box-shadow:0 0 14px rgba(0,191,255,.25)}
+    .phonk-track .phonk-date{font-size:.68rem;color:#8ebbd0;margin-top:5px;overflow-wrap:anywhere}
+    .phonk-player{margin-top:10px;aspect-ratio:16/9;width:100%}
+    .phonk-player iframe{width:100%;height:100%;border:1px solid #00bfff;border-radius:8px}
+
+  
+    /* Mobile-friendly PHONK playlist: larger cards and touch targets */
+    .phonk-playlist{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px;text-align:left}
+    .phonk-track{grid-template-columns:46px minmax(0,1fr);gap:12px;padding:12px;border-radius:14px}
+    .phonk-number{font-size:17px}
+    .phonk-track-title{font-size:1rem;letter-spacing:.06em;margin-bottom:9px}
+    .phonk-track img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px}
+    .phonk-track button{min-height:50px;font-size:1rem;padding:12px 14px;margin-top:10px;border-radius:10px;touch-action:manipulation}
+    .phonk-track .phonk-date{font-size:.78rem;line-height:1.4;margin-top:8px}
+    .phonk-player{margin-top:12px;aspect-ratio:16/9;width:100%}
+    .phonk-player iframe{display:block;width:100%;height:100%;min-height:190px;border-radius:10px}
+    @media (min-width:700px){
+      .phonk-playlist{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+      .phonk-track{grid-template-columns:42px minmax(0,1fr)}
+    }
+    @media (max-width:420px){
+      .phonk-track{grid-template-columns:34px minmax(0,1fr);gap:8px;padding:10px}
+      .phonk-track-title{font-size:.92rem}
+      .phonk-track button{font-size:.92rem;min-height:52px}
+      .phonk-number{font-size:15px}
+    }
+
+  
+    @media (max-width:600px){
+      html,body{width:100%;max-width:100%;overflow-x:hidden}
+      .container,.wrap,.content,main{max-width:100%;box-sizing:border-box}
+      .card{box-sizing:border-box;width:100%;max-width:100%;padding:18px 14px}
+      .phonk-playlist,.phonk-track,.phonk-track-main{min-width:0;box-sizing:border-box}
+      .phonk-track img{max-width:100%}
+      .phonk-player iframe{min-width:0}
+    }
+
+  
+/* Mobile layout repair: keep music categories and tracks readable in narrow WebViews */
+@media (max-width: 800px) {
+  .wrap { padding-left: 12px; padding-right: 12px; }
+  .music.open {
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100%;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 14px;
+  }
+  .music.open > .card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 16px 14px;
+  }
+  .phonk-playlist {
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100%;
+  }
+  .phonk-track {
+    grid-template-columns: 38px minmax(0, 1fr) !important;
+    width: 100%;
+    min-width: 0;
+  }
+  .phonk-track-main { min-width: 0; }
+  .phonk-track-title { overflow-wrap: anywhere; }
+  .phonk-track button,
+  .card > button.play {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px;
+    font-size: 14px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .yt-preview { width: 100%; min-width: 0; }
+  .yt-thumb { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+  .yt-status, .yt-added { overflow-wrap: anywhere; }
+}
+
+
+/* Separate the three music categories into their own vertical sections */
+#musicCards.open {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 880px;
+  margin: 16px auto 0;
+  align-items: stretch;
+}
+#musicCards.open > .card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+#musicCards.open > .card .symbol { margin-top: 2px; }
+#musicCards.open > .card .yt-preview,
+#musicCards.open > .card .phonk-playlist { width: 100%; }
+#musicCards.open > .card .play { max-width: 320px; margin-left: auto; margin-right: auto; }
+@media (min-width: 801px) {
+  #musicCards.open { max-width: 760px; }
+}
+
+
+/* Top category tabs styled to match the neon reference image. */
+.category-nav{gap:14px;justify-content:center;align-items:center;padding:14px 16px;min-height:76px}
+.category-tabs{display:flex;align-items:center;justify-content:center;gap:8px;max-width:100%;padding:5px;border:2px solid #008dff;border-radius:13px;background:rgba(1,9,26,.96);box-shadow:0 0 18px #007bff55}
+.category-tab{appearance:none;border:1px solid transparent;border-radius:9px;background:transparent;color:#00dfff;font:800 clamp(13px,2.2vw,20px) Arial,sans-serif;padding:12px clamp(14px,3vw,30px);cursor:pointer;white-space:nowrap;text-shadow:0 0 9px #007bff;transition:.2s}
+.category-tab.active,.category-tab:hover{color:#fff;border-color:#65eaff;background:linear-gradient(110deg,#06396a,#04172f);box-shadow:0 0 15px #00bfff,inset 0 0 12px #00aaff35}
+#musicCards [data-category-panel]{display:none}
+#musicCards [data-category-panel].active-category{display:block}
+@media(max-width:520px){.category-nav{padding:10px 6px;gap:6px}.category-tabs{gap:2px;width:100%}.category-tab{padding:10px 11px;font-size:13px;flex:1}.neon{font-size:9px}}
+
+</style>
+
+<style>
+#introScreen{position:fixed;inset:0;z-index:99999;background:#010510;display:flex;align-items:center;justify-content:center;overflow:hidden;opacity:1;visibility:visible;transition:opacity .45s ease,visibility .45s ease}
+#introScreen.finished{opacity:0;visibility:hidden;pointer-events:none}
+#introVideo{width:100%;height:100%;object-fit:contain;background:#010510}
+#introCountdown{position:absolute;right:16px;bottom:16px;padding:10px 14px;border:1px solid #00dfff;border-radius:10px;background:#020817d9;color:#a9f5ff;font:800 13px Arial,sans-serif;letter-spacing:1px;box-shadow:0 0 16px #00bfff66}
+#siteContent{opacity:0;visibility:hidden;transition:opacity .45s ease}
+#siteContent.site-ready{opacity:1;visibility:visible}
+@media(prefers-reduced-motion:reduce){#introScreen,#siteContent{transition:none}}
+
+#musicToggle{position:fixed;right:14px;bottom:14px;z-index:100001;border:1px solid #00dfff;border-radius:999px;padding:11px 15px;background:#020b18ee;color:#a9f5ff;font-weight:800;letter-spacing:.5px;box-shadow:0 0 18px #00bfff55;cursor:pointer}
+#musicHint{position:fixed;left:12px;right:12px;bottom:70px;z-index:100001;margin:auto;max-width:420px;padding:10px 12px;text-align:center;border:1px solid #00dfff;border-radius:10px;background:#020b18ee;color:#c9f8ff;font-size:12px;line-height:1.45;display:none}
+</style>
+
+</head>
+<body>
+<div id="introScreen" aria-label="ASH XIT intro video">
+  <video id="introVideo" autoplay muted playsinline preload="auto">
+    <source src="Garena%20logo%20Animation%20short.mp4" type="video/mp4">
+  </video>
+  <div id="introCountdown" aria-live="polite">ASH XIT OPENING IN 5…</div>
+</div>
+<audio id="backgroundMusic" src="ash-xit-background.mp3" preload="auto" loop playsinline></audio>
+<button id="musicToggle" type="button" aria-label="Turn background music on or off">♫ MUSIC: ON</button>
+<div id="musicHint">If music did not start automatically, tap once anywhere on the screen to enable it.</div>
+<div id="siteContent">
+<canvas id="rain"></canvas>
+<div class="wrap">
+  <nav class="nav category-nav" aria-label="Music categories">
+    <div class="category-tabs" role="tablist" aria-label="Music categories">
+      <button class="category-tab active" type="button" role="tab" aria-selected="true" data-category-tab="rap">Rap songs</button>
+      <button class="category-tab" type="button" role="tab" aria-selected="false" data-category-tab="phonk">Phonk</button>
+      <button class="category-tab" type="button" role="tab" aria-selected="false" data-category-tab="love">Love</button>
+    </div>
+    <span class="neon">NEON <b id="neonState">ON</b> <input aria-label="Toggle neon" id="neonToggle" type="checkbox" checked style="accent-color:#00cfff;vertical-align:middle"></span>
+  </nav>
+  <section id="home" class="hero">
+    <div class="side left"><div class="hood"></div><div class="shoulder"></div><div class="side-mark">ASH<br>XIT</div></div>
+    <div class="side right"><div class="hood"></div><div class="shoulder"></div><div class="side-mark">ASH<br>XIT</div></div>
+    <div class="crown">♛</div>
+    <h1 class="logo">ASH XIT</h1>
+    <div class="subhead">CYBER MUSIC ZONE</div>
+    <div class="tagline">— &nbsp; M U S I C &nbsp; C O N N E C T S &nbsp; S O U L S &nbsp; —</div>
+  </section>
+  <section class="clockbox" aria-label="Live date and time">
+    <div class="clockitem">▦ &nbsp; DATE<strong id="date">Loading…</strong><span id="day"></span></div>
+    <div class="clockcenter"><span id="time">00:00:00</span><span class="ampm" id="ampm">LK TIME</span></div>
+    <div class="clockitem">◷ &nbsp; TIME<strong>Sri Lanka</strong><span>(GMT +5:30)</span></div>
+  </section>
+  <section class="goarea" id="music">
+    <div class="spin-stage" aria-label="Rotating ASH XIT cyan wolf emblem">
+      <div class="spin-emblem" aria-hidden="true">
+        <svg viewBox="0 0 200 200" role="img" aria-label="Stylized wolf skull">
+          <defs><linearGradient id="wolfGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#aaffff"/><stop offset=".45" stop-color="#00f5e8"/><stop offset="1" stop-color="#007bff"/></linearGradient></defs>
+          <path d="M100 15 L125 48 L161 38 L151 72 L180 91 L150 111 L143 151 L119 170 L100 190 L81 170 L57 151 L50 111 L20 91 L49 72 L39 38 L75 48 Z" fill="#03101d" stroke="url(#wolfGlow)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M48 73 L77 85 L91 105 L78 119 L63 111 L51 95 Z M152 73 L123 85 L109 105 L122 119 L137 111 L149 95 Z" fill="#00dfff" opacity=".35"/>
+          <path d="M69 75 L91 88 L100 109 L109 88 L131 75 L124 118 L100 143 L76 118 Z" fill="url(#wolfGlow)" stroke="#8fffff" stroke-width="2"/>
+          <path d="M85 115 L100 105 L115 115 L110 139 L100 150 L90 139 Z" fill="#02111e" stroke="#00eaff" stroke-width="3"/>
+          <path d="M80 151 L87 164 L94 153 L100 167 L106 153 L113 164 L120 151" fill="none" stroke="#00eaff" stroke-width="4" stroke-linecap="round"/>
+          <path d="M29 128 L43 137 L47 155 M171 128 L157 137 L153 155" fill="none" stroke="#00eaff" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="77" cy="101" r="5" fill="#dfffff"/><circle cx="123" cy="101" r="5" fill="#dfffff"/>
+        </svg>
+      </div>
+      <div class="spin-caption">ASH XIT • FEEL THE VIBES</div>
+    </div>
+    <div class="enter">LISTEN • FEEL • REPEAT</div>
+    <div class="music open" id="musicCards">
+      <article class="card" data-category-panel="phonk"><div class="symbol">🎤</div><h3>PHONK SONGS</h3><p>BEATS • FLOW • VIBES</p>
+        <div class="phonk-playlist" id="phonkPlaylist" aria-label="Phonk songs playlist"></div>
+        <div class="yt-status" id="rapStatus">4 PHONK tracks loaded in your order.</div>
+      </article>
+      <article class="card" data-category-panel="love"><div class="symbol">♡</div><h3>LOVE SONGS</h3><p>FEEL THE MUSIC</p><div class="yt-preview" data-preview="LOVE SONG"><img class="yt-thumb show" data-thumb="LOVE SONG" alt="LOVE SONG thumbnail" src=""><div class="yt-status" data-status="LOVE SONG">Add the YouTube link in the HTML code.</div><div class="yt-added" data-added="LOVE SONG">Added: —</div></div><button class="play" data-song="LOVE SONG" aria-label="Play LOVE SONG">▶ OPEN SONG</button></article>
+      <article class="card active-category" data-category-panel="rap"><div class="symbol">☠</div><h3>RAP SONGS</h3><p>DARK VIBES • RAP FLOW</p><div class="yt-preview" data-preview="RAP"><img class="yt-thumb show" data-thumb="RAP" alt="RAP thumbnail" src=""><div class="yt-status" data-status="RAP">Add the YouTube link in the HTML code.</div><div class="yt-added" data-added="RAP">Added: —</div></div><button class="play" data-song="RAP" aria-label="Play RAP SONGS">▶ OPEN SONG</button></article>
+    </div>
+    <div class="notice" id="notice">Music category selected. Add your own audio files or music links to play tracks here.</div>
+  </section>
+  <section class="features" id="about">
+    <div class="feature"><span>♬</span> HIGH QUALITY<br>MUSIC</div><div class="feature"><span>ϟ</span> FAST<br>LOADING</div><div class="feature"><span>⬡</span> SAFE &amp;<br>SECURE</div><div class="feature"><span>☆</span> BEST MUSIC<br>COLLECTION</div>
+  </section>
+  <footer id="contact"><span>© 2026 ASH XIT | ALL RIGHTS RESERVED</span><span>STAY CONNECTED &nbsp; ◉ ◎ ◈</span></footer>
+</div>
+</div>
+<script>
+const introScreen=document.getElementById("introScreen");
+const introVideo=document.getElementById("introVideo");
+const introCountdown=document.getElementById("introCountdown");
+const siteContent=document.getElementById("siteContent");
+let introSeconds=5;
+introCountdown.textContent="ASH XIT OPENING IN "+introSeconds+"…";
+const introTimer=setInterval(()=>{
+  introSeconds--;
+  if(introSeconds>0){introCountdown.textContent="ASH XIT OPENING IN "+introSeconds+"…";}
+  else{clearInterval(introTimer);introScreen.classList.add("finished");siteContent.classList.add("site-ready");introVideo.pause();setTimeout(()=>introScreen.remove(),500);}
+},1000);
+introVideo.play().catch(()=>{ /* Some browsers require a tap; the 5-second intro timer still continues. */ });
+
+// Start the supplied MP3 during the intro and keep the same audio element alive
+// when the intro overlay disappears, so the music continues into the website.
+const backgroundMusic=document.getElementById('backgroundMusic');
+const musicToggle=document.getElementById('musicToggle');
+const musicHint=document.getElementById('musicHint');
+let musicWanted=true;
+function updateMusicButton(){
+  musicToggle.textContent=backgroundMusic.paused?'♫ MUSIC: OFF':'♫ MUSIC: ON';
+  musicToggle.setAttribute('aria-pressed',String(!backgroundMusic.paused));
+}
+function tryStartMusic(){
+  if(!musicWanted) return;
+  backgroundMusic.volume=0.7;
+  const p=backgroundMusic.play();
+  if(p && typeof p.then==='function'){
+    p.then(()=>{musicHint.style.display='none';updateMusicButton();})
+     .catch(()=>{musicHint.style.display='block';updateMusicButton();});
+  }
+}
+tryStartMusic();
+// A user tap is the browser-approved fallback for sound autoplay restrictions.
+function unlockMusic(){if(backgroundMusic.paused && musicWanted) tryStartMusic();}
+['pointerdown','touchstart','keydown'].forEach(ev=>document.addEventListener(ev,unlockMusic,{passive:true}));
+musicToggle.addEventListener('click',()=>{
+  if(backgroundMusic.paused){musicWanted=true;tryStartMusic();}
+  else{musicWanted=false;backgroundMusic.pause();musicHint.style.display='none';updateMusicButton();}
+});
+backgroundMusic.addEventListener('play',()=>{musicHint.style.display='none';updateMusicButton();});
+backgroundMusic.addEventListener('pause',updateMusicButton);
+
+const rain=document.getElementById('rain'),ctx=rain.getContext('2d');let drops=[],cols=0,fs=16;
+function resize(){rain.width=innerWidth*devicePixelRatio;rain.height=innerHeight*devicePixelRatio;rain.style.width=innerWidth+'px';rain.style.height=innerHeight+'px';ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);cols=Math.ceil(innerWidth/fs);drops=Array(cols).fill(1)}resize();addEventListener('resize',resize);
+let rainOn=true;function draw(){if(rainOn){ctx.fillStyle='rgba(1,5,16,.13)';ctx.fillRect(0,0,innerWidth,innerHeight);ctx.fillStyle='#00bfff';ctx.font=fs+'px monospace';for(let i=0;i<drops.length;i++){ctx.fillText(String.fromCharCode(0x30A0+Math.random()*96),i*fs,drops[i]*fs);if(drops[i]*fs>innerHeight&&Math.random()>.978)drops[i]=0;drops[i]++}}requestAnimationFrame(draw)}draw();
+function clock(){const now=new Date();const opts={timeZone:'Asia/Colombo'};document.getElementById('time').textContent=new Intl.DateTimeFormat('en-GB',{...opts,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(now);document.getElementById('date').textContent=new Intl.DateTimeFormat('en-CA',{...opts,year:'numeric',month:'2-digit',day:'2-digit'}).format(now);document.getElementById('day').textContent=new Intl.DateTimeFormat('en-US',{...opts,weekday:'long'}).format(now);document.getElementById('ampm').textContent='SRI LANKA TIME'}clock();setInterval(clock,1000);
+// Switch only the song category panel; the rest of the original website stays unchanged.
+function selectMusicCategory(category){
+  document.querySelectorAll('[data-category-tab]').forEach(tab=>{
+    const active=tab.dataset.categoryTab===category;
+    tab.classList.toggle('active',active);
+    tab.setAttribute('aria-selected',active?'true':'false');
+  });
+  document.querySelectorAll('[data-category-panel]').forEach(panel=>{
+    panel.classList.toggle('active-category',panel.dataset.categoryPanel===category);
+  });
+}
+document.querySelectorAll('[data-category-tab]').forEach(tab=>{
+  tab.addEventListener('click',()=>selectMusicCategory(tab.dataset.categoryTab));
+});
+selectMusicCategory('rap');
+
+// PHONK SONGS supplied by you, kept in the exact order received.
+// Thumbnails are generated from each YouTube video ID.
+const PHONK_SONGS = [
+  { url: 'https://youtu.be/CuR4HJsq5RA?si=fysPSELMR7UeTqgx', addedAt: '2026-10-20T15:32:00+05:30' },
+  { url: 'https://youtu.be/uzHgK4kgZSk?si=eNFg5sUUt0AfrCmX', addedAt: '2026-10-20T15:33:00+05:30' },
+  { url: 'https://youtu.be/ONeGG1f3OJA?si=OOkiJKAyvodsMgzM', addedAt: '2026-10-20T15:34:00+05:30' },
+  { url: 'https://youtu.be/UIuBtl4rz0E?si=fvDmSs0cMG-xPbQC', addedAt: '2026-10-20T15:35:00+05:30' }
+];
+function getYouTubeId(raw){
+  try{
+    const u=new URL(raw.trim());
+    const host=u.hostname.toLowerCase().replace(/^www\./,'').replace(/^m\./,'');
+    let id='';
+    if(host==='youtu.be') id=u.pathname.split('/').filter(Boolean)[0]||'';
+    else if(['youtube.com','music.youtube.com','youtube-nocookie.com'].includes(host)){
+      if(u.pathname==='/watch') id=u.searchParams.get('v')||'';
+      else if(/^\/(embed|shorts|live)\/[^/]+/.test(u.pathname)) id=u.pathname.split('/')[2]||'';
+    }
+    return /^[A-Za-z0-9_-]{11}$/.test(id)?id:'';
+  }catch(e){return ''}
+}
+function formatAdded(value){
+  const d=new Date(value);
+  if(Number.isNaN(d.getTime())) return value || 'Not set';
+  return new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Colombo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:true}).format(d)+' (Sri Lanka time)';
+}
+function renderPhonkSongs(){
+  const list=document.getElementById('phonkPlaylist');
+  list.innerHTML='';
+  PHONK_SONGS.forEach((song,index)=>{
+    const id=getYouTubeId(song.url);
+    const item=document.createElement('div');
+    item.className='phonk-track';
+    const num=document.createElement('div');
+    num.className='phonk-number';
+    num.textContent=String(index+1).padStart(2,'0');
+    const main=document.createElement('div');
+    main.className='phonk-track-main';
+    const title=document.createElement('div');
+    title.className='phonk-track-title';
+    title.textContent='PHONK TRACK '+String(index+1).padStart(2,'0');
+    main.appendChild(title);
+    if(id){
+      const img=document.createElement('img');
+      img.src='https://img.youtube.com/vi/'+id+'/hqdefault.jpg';
+      img.alt='PHONK TRACK '+(index+1)+' YouTube thumbnail';
+      img.loading='lazy';
+      img.onerror=()=>{img.src='https://img.youtube.com/vi/'+id+'/mqdefault.jpg';};
+      main.appendChild(img);
+    }else{
+      const warning=document.createElement('div');
+      warning.className='yt-status';
+      warning.textContent='Invalid YouTube link';
+      main.appendChild(warning);
+    }
+    const date=document.createElement('div');
+    date.className='phonk-date';
+    date.textContent='Added: '+formatAdded(song.addedAt);
+    main.appendChild(date);
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.dataset.originalLabel='▶ PLAY PHONK TRACK '+String(index+1).padStart(2,'0');
+    btn.textContent=btn.dataset.originalLabel;
+    btn.addEventListener('click',()=>playPhonkSong(index,item));
+    main.appendChild(btn);
+    item.appendChild(num);
+    item.appendChild(main);
+    list.appendChild(item);
+  });
+}
+function playPhonkSong(index,item){
+  const song=PHONK_SONGS[index];
+  const id=song&&getYouTubeId(song.url);
+  if(!id){document.getElementById('rapStatus').textContent='This YouTube link is not valid.';return;}
+  document.querySelectorAll('.phonk-player').forEach(p=>p.remove());
+  const player=document.createElement('div');
+  player.className='phonk-player';
+  player.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" title="PHONK TRACK '+(index+1)+' YouTube player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+  item.querySelector('.phonk-track-main').appendChild(player);
+  document.querySelectorAll('.phonk-track button').forEach(b=>b.textContent=b.dataset.originalLabel);
+  const btn=item.querySelector('button');
+  btn.textContent='Ⅱ PLAYING TRACK '+String(index+1).padStart(2,'0');
+  document.getElementById('rapStatus').textContent='Playing PHONK TRACK '+String(index+1).padStart(2,'0')+' • YouTube player';
+}
+renderPhonkSongs();
+document.getElementById('neonToggle').addEventListener('change',e=>{document.getElementById('neonState').textContent=e.target.checked?'ON':'OFF';document.body.classList.toggle('neon-off',!e.target.checked);document.querySelectorAll('.logo,.crown,.spin-emblem,.card,.clockcenter').forEach(el=>el.style.filter=e.target.checked?'':'grayscale(1)')});
+document.getElementById('settings').addEventListener('click',()=>{const t=document.getElementById('neonToggle');t.checked=!t.checked;t.dispatchEvent(new Event('change'))});
+</script>
+</body>
+</html>
